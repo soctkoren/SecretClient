@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretClient/ViewController.m"
-            timestampString = "495264232.610606"
+            timestampString = "495287581.356231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "-featureLayer:operation:didSelectFeaturesWithFeatureSet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretClient/ViewController.m"
-            timestampString = "495264232.610606"
+            timestampString = "495287581.356231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "-featureLayer:operation:didSelectFeaturesWithFeatureSet:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,28 +42,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretClient/ViewController.m"
-            timestampString = "495264232.610606"
+            timestampString = "495287316.595568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-handleShowButton:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SecretClient/ViewController.m"
-            timestampString = "495264232.610606"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-queryTask:operation:didFailWithError:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretClient/ViewController.m"
+            timestampString = "495287516.978665"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "-drawGraphicsLayerFeatures:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretClient/ViewController.m"
+            timestampString = "495287516.978665"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "-renderFeatures"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

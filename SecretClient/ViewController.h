@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <ArcGIS/ArcGIS.h>
 
-@interface ViewController : UIViewController  <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSWebMapDelegate, AGSCalloutDelegate, AGSPopupsContainerDelegate, UIAlertViewDelegate, AGSQueryTaskDelegate>
+@interface ViewController : UIViewController  <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSWebMapDelegate, AGSCalloutDelegate, AGSPopupsContainerDelegate, UIAlertViewDelegate, AGSQueryTaskDelegate, AGSCalloutDelegate, UITableViewDelegate, UITableViewDataSource>
 
 
 @property (weak, nonatomic) IBOutlet AGSMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIButton *showCountyPicker;
 @property (nonatomic, strong) AGSLocation *currentLocation;
 
 @end

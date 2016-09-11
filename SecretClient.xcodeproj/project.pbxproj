@@ -17,6 +17,8 @@
 		E54A69FB1D84C0A700A66000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E54A69F91D84C0A700A66000 /* LaunchScreen.storyboard */; };
 		E54A6A061D84C0A700A66000 /* SecretClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E54A6A051D84C0A700A66000 /* SecretClientTests.m */; };
 		E54A6A111D84C0A700A66000 /* SecretClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E54A6A101D84C0A700A66000 /* SecretClientUITests.m */; };
+		E5C086791D854DEA0009A0DB /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C086781D854DEA0009A0DB /* MessageTableViewCell.m */; };
+		E5C0867C1D8562B20009A0DB /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0867B1D8562B20009A0DB /* ColorHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		E54A6A0C1D84C0A700A66000 /* SecretClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54A6A101D84C0A700A66000 /* SecretClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecretClientUITests.m; sourceTree = "<group>"; };
 		E54A6A121D84C0A700A66000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5C086771D854DEA0009A0DB /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		E5C086781D854DEA0009A0DB /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		E5C0867A1D8562B20009A0DB /* ColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
+		E5C0867B1D8562B20009A0DB /* ColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorHelper.m; sourceTree = "<group>"; };
 		F151C82890EDFD4FFA589DB0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,11 +133,15 @@
 		E54A69E71D84C0A700A66000 /* SecretClient */ = {
 			isa = PBXGroup;
 			children = (
+				E5C0867A1D8562B20009A0DB /* ColorHelper.h */,
+				E5C0867B1D8562B20009A0DB /* ColorHelper.m */,
 				E54A69EB1D84C0A700A66000 /* AppDelegate.h */,
 				E54A69EC1D84C0A700A66000 /* AppDelegate.m */,
 				E54A69EE1D84C0A700A66000 /* ViewController.h */,
 				E54A69EF1D84C0A700A66000 /* ViewController.m */,
 				E54A69F11D84C0A700A66000 /* Main.storyboard */,
+				E5C086771D854DEA0009A0DB /* MessageTableViewCell.h */,
+				E5C086781D854DEA0009A0DB /* MessageTableViewCell.m */,
 				E54A69F71D84C0A700A66000 /* Assets.xcassets */,
 				E54A69F91D84C0A700A66000 /* LaunchScreen.storyboard */,
 				E54A69FC1D84C0A700A66000 /* Info.plist */,
@@ -350,7 +360,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E54A69F01D84C0A700A66000 /* ViewController.m in Sources */,
+				E5C0867C1D8562B20009A0DB /* ColorHelper.m in Sources */,
 				E54A69ED1D84C0A700A66000 /* AppDelegate.m in Sources */,
+				E5C086791D854DEA0009A0DB /* MessageTableViewCell.m in Sources */,
 				E54A69F61D84C0A700A66000 /* SecretClient.xcdatamodeld in Sources */,
 				E54A69EA1D84C0A700A66000 /* main.m in Sources */,
 			);
