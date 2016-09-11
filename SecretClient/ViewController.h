@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <ArcGIS/ArcGIS.h>
 
-@interface ViewController : UIViewController  <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSWebMapDelegate, AGSCalloutDelegate, AGSPopupsContainerDelegate, UIAlertViewDelegate>
+@interface ViewController : UIViewController  <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSWebMapDelegate, AGSCalloutDelegate, AGSPopupsContainerDelegate, UIAlertViewDelegate, AGSQueryTaskDelegate>
 
 
 @property (weak, nonatomic) IBOutlet AGSMapView *mapView;

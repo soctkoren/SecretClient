@@ -8,18 +8,18 @@
 
 #import "ViewController.h"
 
+
 static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 
 @interface ViewController ()
 @property (nonatomic, strong) AGSWebMap *webMap;
+@property (nonatomic, strong) AGSQueryTask* queryTask;
 
 @end
 
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"];
@@ -27,25 +27,49 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
 
     
-//    
-//    //Add a feature layer
-//    NSURL* urlOfHint = [NSURL URLWithString:@"https://services2.arcgis.com/aul9vc2gUsuK2PDq/arcgis/rest/services/Hints/FeatureServer/0"];
-//    AGSFeatureLayer* featureLayer = [AGSFeatureLayer featureServiceLayerWithURL:urlOfHint mode:AGSFeatureLayerModeOnDemand];
-//    [self.mapView addMapLayer:featureLayer withName:@"Hint Tiled Layer"];
-//
-//    
-//    // SYMBOLOGY
-//    AGSSimpleMarkerSymbol *featureSymbol = [AGSSimpleMarkerSymbol simpleMarkerSymbolWithColor:[UIColor colorWithRed:0 green:0.46 blue:0.68 alpha:1]];
-//    featureSymbol.size = CGSizeMake(7,7);
-//    featureSymbol.style = AGSSimpleMarkerSymbolStyleCircle;
-//    featureSymbol.outline = nil;
-//    featureLayer.renderer = [AGSSimpleRenderer simpleRendererWithSymbol:featureSymbol];
-//
+    
+    AGSGraphicsLayer* myGraphicsLayer = [AGSGraphicsLayer graphicsLayer];
+    [self.mapView addMapLayer:myGraphicsLayer withName:@"Graphics Layer"];
+
     
     //2. Set the map view's layerDelegate
     self.mapView.layerDelegate = self;
+    
 
+
+    [self queryTest];
 }
+
+- (void)queryTest {
+    NSURL* url = [NSURL URLWithString: @"https://services2.arcgis.com/aul9vc2gUsuK2PDq/arcgis/rest/services/Hints/FeatureServer/0"];
+    self.queryTask = [AGSQueryTask queryTaskWithURL: url];
+    self.queryTask.delegate = self;
+
+    
+    AGSQuery *selectQuery = [AGSQuery query];
+    selectQuery.whereClause = [NSString stringWithFormat:@"score > 0"];
+//
+//    selectQuery.objectIds = @[@"1", @"2", @"3"];
+    selectQuery.outFields = [NSArray arrayWithObjects:@"*", nil];
+    [selectQuery setReturnGeometry:YES];
+    [self.queryTask executeWithQuery:selectQuery];
+}
+
+
+// AGSQueryDelegate
+
+- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation *)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet{
+    
+    NSArray *features = featureSet.features;
+    for (AGSGraphic *feature in features) {
+        NSLog(@"%@", feature);
+    }
+}
+
+- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation *)op didFailWithError:(NSError *)error{
+    NSLog(@"%@", error);
+}
+
 
 //3. Implement the layer delegate method
 - (void)mapViewDidLoad:(AGSMapView *) mapView {
@@ -55,23 +79,7 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
     
     [mapView.locationDisplay startDataSource];
     
-
-    
-//    mapView.locationDisplay.dataSource.delegate = self;
-
 }
-
-//
-//- (void)locationDisplayDataSource:(id<AGSLocationDisplayDataSource>)dataSource didUpdateWithLocation:(AGSLocation *)location{
-//    self.currentLocation = location;
-//}
-//-(void)locationDisplayDataSource:(id<AGSLocationDisplayDataSource>)dataSource didUpdateWithHeading:(double)heading{
-//    
-//}
-//-(void)locationDisplayDataSource:(id<AGSLocationDisplayDataSource>)dataSource didFailWithError:(NSError*)error{}
-//-(void)locationDisplayDataSourceStopped:(id<AGSLocationDisplayDataSource>)dataSource{}
-//-(void)locationDisplayDataSourceStarted:(id<AGSLocationDisplayDataSource>)dataSource{}
-//
 
 
 
