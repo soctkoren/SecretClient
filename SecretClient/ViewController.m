@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MessageTableViewCell.h"
 #import "ColorHelper.h"
+#import "CBZSplashView.h"
 
 
 static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
@@ -43,6 +44,15 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImage *icon = [UIImage imageNamed:@"launchIcon"];
+    UIColor *color = [UIColor colorWithRed:135/255.f green:190/255.f blue:240/255.f alpha:1.0];
+    CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
+    
+    // customize duration, icon size, or icon color here;
+    
+    [self.view addSubview:splashView];
+    [splashView startAnimation];
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"];
@@ -282,7 +292,7 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 
 
     [self.view layoutIfNeeded];
-    self.constraintHeightOfBottomView.constant = 300;
+    self.constraintHeightOfBottomView.constant = 230;
     
 
     [UIView animateWithDuration:0.2
@@ -299,7 +309,7 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
     
     [self.tableView reloadData];
 
-    return YES;
+    return NO;
 }
 
 #pragma mark - UITableView delegate

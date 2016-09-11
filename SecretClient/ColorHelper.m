@@ -166,8 +166,8 @@
         return [UIColor colorWithRed:241/255.f green:102/255.f blue:99/255.f alpha:1.0];
     } else if ([sentiment isEqualToString:@"anger"]) {
         return [UIColor colorWithRed:244/255.f green:141/255.f blue:108/255.f alpha:1.0];
-    } else if ([sentiment isEqualToString:@"fear"]) {
-        return [UIColor colorWithRed:242/255.f green:224/255.f blue:123/255.f alpha:1.0];
+    } else if ([sentiment isEqualToString:@"joy"]) {
+        return [UIColor colorWithRed:223/255.f green:204/255.f blue:96/255.f alpha:1.0];
     } else if ([sentiment isEqualToString:@"disappointed"]) {
         return [UIColor colorWithRed:138/255.f green:190/255.f blue:155/255.f alpha:1.0];
     }else {
@@ -180,8 +180,8 @@
         return [UIColor colorWithRed:241/255.f green:102/255.f blue:99/255.f alpha:alpha];
     } else if ([sentiment isEqualToString:@"anger"]) {
         return [UIColor colorWithRed:244/255.f green:141/255.f blue:108/255.f alpha:alpha];
-    } else if ([sentiment isEqualToString:@"fear"]) {
-        return [UIColor colorWithRed:242/255.f green:224/255.f blue:123/255.f alpha:alpha];
+    } else if ([sentiment isEqualToString:@"joy"]) {
+        return [UIColor colorWithRed:223/255.f green:204/255.f blue:96/255.f alpha:alpha];
     } else if ([sentiment isEqualToString:@"disappointed"]) {
         return [UIColor colorWithRed:138/255.f green:190/255.f blue:155/255.f alpha:alpha];
     }else {

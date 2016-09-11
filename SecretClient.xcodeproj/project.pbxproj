@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		0E2696DC7EAFCC222B581CBA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4413C07032AD99951BD56FB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E54A69E51D84C0A700A66000 /* SecretClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E54A69E51D84C0A700A66000 /* Secret.Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secret.Club.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54A69E91D84C0A700A66000 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E54A69EB1D84C0A700A66000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E54A69EC1D84C0A700A66000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		E54A69E61D84C0A700A66000 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E54A69E51D84C0A700A66000 /* SecretClient.app */,
+				E54A69E51D84C0A700A66000 /* Secret.Club.app */,
 				E54A6A011D84C0A700A66000 /* SecretClientTests.xctest */,
 				E54A6A0C1D84C0A700A66000 /* SecretClientUITests.xctest */,
 			);
@@ -180,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E54A69E41D84C0A700A66000 /* SecretClient */ = {
+		E54A69E41D84C0A700A66000 /* Secret.Club */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E54A6A151D84C0A700A66000 /* Build configuration list for PBXNativeTarget "SecretClient" */;
+			buildConfigurationList = E54A6A151D84C0A700A66000 /* Build configuration list for PBXNativeTarget "Secret.Club" */;
 			buildPhases = (
 				2891F0326909C7C59C827D2A /* Check Pods Manifest.lock */,
 				E54A69E11D84C0A700A66000 /* Sources */,
@@ -195,9 +195,9 @@
 			);
 			dependencies = (
 			);
-			name = SecretClient;
+			name = Secret.Club;
 			productName = SecretClient;
-			productReference = E54A69E51D84C0A700A66000 /* SecretClient.app */;
+			productReference = E54A69E51D84C0A700A66000 /* Secret.Club.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E54A6A001D84C0A700A66000 /* SecretClientTests */ = {
@@ -272,7 +272,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E54A69E41D84C0A700A66000 /* SecretClient */,
+				E54A69E41D84C0A700A66000 /* Secret.Club */,
 				E54A6A001D84C0A700A66000 /* SecretClientTests */,
 				E54A6A0B1D84C0A700A66000 /* SecretClientUITests */,
 			);
@@ -389,12 +389,12 @@
 /* Begin PBXTargetDependency section */
 		E54A6A031D84C0A700A66000 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E54A69E41D84C0A700A66000 /* SecretClient */;
+			target = E54A69E41D84C0A700A66000 /* Secret.Club */;
 			targetProxy = E54A6A021D84C0A700A66000 /* PBXContainerItemProxy */;
 		};
 		E54A6A0E1D84C0A700A66000 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E54A69E41D84C0A700A66000 /* SecretClient */;
+			target = E54A69E41D84C0A700A66000 /* Secret.Club */;
 			targetProxy = E54A6A0D1D84C0A700A66000 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -591,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E54A6A151D84C0A700A66000 /* Build configuration list for PBXNativeTarget "SecretClient" */ = {
+		E54A6A151D84C0A700A66000 /* Build configuration list for PBXNativeTarget "Secret.Club" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E54A6A161D84C0A700A66000 /* Debug */,

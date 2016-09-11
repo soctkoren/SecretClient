@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "yellowbot.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "yellowbot2.png",
       "scale" : "2x"
     },
     {
