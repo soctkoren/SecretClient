@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <ArcGIS/ArcGIS.h>
+#import <JFMinimalNotification.h>
+
 
 @interface ViewController : UIViewController  <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSWebMapDelegate, AGSCalloutDelegate, AGSPopupsContainerDelegate, UIAlertViewDelegate, AGSQueryTaskDelegate, AGSCalloutDelegate, UITableViewDelegate, UITableViewDataSource>
 

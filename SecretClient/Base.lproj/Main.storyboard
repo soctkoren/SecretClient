@@ -20,15 +20,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7c-kd-N9w" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="349"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byP-ws-VbQ">
+                                        <rect key="frame" x="485" y="0.0" width="115" height="41"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="dUb-oc-hC3"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Secret.Club"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="byP-ws-VbQ" secondAttribute="trailing" id="9aL-sG-nHV"/>
+                                    <constraint firstItem="byP-ws-VbQ" firstAttribute="top" secondItem="s7c-kd-N9w" secondAttribute="top" id="CEH-3X-H88"/>
+                                    <constraint firstItem="byP-ws-VbQ" firstAttribute="leading" secondItem="s7c-kd-N9w" secondAttribute="leading" id="vsw-aY-rmv"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-6t-cBR">
-                                <rect key="frame" x="282" y="533" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="handleShowButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fTX-t4-938"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="legendBlack" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-P4-PWP">
+                                <rect key="frame" x="38" y="434" width="117" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="ASO-z6-AiG"/>
+                                    <constraint firstAttribute="height" constant="123" id="D1j-KM-EC5"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-E6-YAz">
                                 <rect key="frame" x="5" y="377" width="595" height="223"/>
                                 <subviews>
@@ -38,13 +54,13 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BottomViewBar" translatesAutoresizingMaskIntoConstraints="NO" id="803-rm-7n3">
                                                 <rect key="frame" x="0.0" y="0.0" width="587" height="50"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFr-z6-GjU">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFr-z6-GjU">
                                                 <rect key="frame" x="517" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="IR0-PB-Y2i"/>
                                                     <constraint firstAttribute="width" constant="50" id="W7J-5b-jYI"/>
                                                 </constraints>
-                                                <state key="normal" image="heart"/>
+                                                <state key="normal" image="heartgray"/>
                                                 <connections>
                                                     <action selector="handleLikeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qck-FJ-SKU"/>
                                                 </connections>
@@ -148,6 +164,8 @@
                             <constraint firstItem="s7c-kd-N9w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Spa-bH-co1"/>
                             <constraint firstItem="lbA-E6-YAz" firstAttribute="top" secondItem="s7c-kd-N9w" secondAttribute="bottom" constant="-30" id="fXL-Wg-qjk"/>
                             <constraint firstItem="s7c-kd-N9w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mnK-Tj-nI8"/>
+                            <constraint firstItem="8a3-P4-PWP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="s36-MY-ldh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8a3-P4-PWP" secondAttribute="bottom" constant="10" id="sHE-gg-iyR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -161,11 +179,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="362"/>
+            <point key="canvasLocation" x="289" y="374"/>
         </scene>
     </scenes>
     <resources>
         <image name="BottomViewBar" width="207" height="61"/>
-        <image name="heart" width="60" height="61"/>
+        <image name="heartgray" width="60" height="61"/>
+        <image name="legendBlack" width="147" height="133"/>
     </resources>
 </document>

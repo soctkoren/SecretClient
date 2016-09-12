@@ -170,7 +170,7 @@
         return [UIColor colorWithRed:223/255.f green:204/255.f blue:96/255.f alpha:1.0];
     } else if ([sentiment isEqualToString:@"disappointed"]) {
         return [UIColor colorWithRed:138/255.f green:190/255.f blue:155/255.f alpha:1.0];
-    }else {
+    } else {
         return [UIColor colorWithRed:74/255.f green:109/255.f blue:139/255.f alpha:1.0];
     }
 }

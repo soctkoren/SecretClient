@@ -12,6 +12,7 @@
 #import "CBZSplashView.h"
 
 
+
 static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 
 
@@ -28,7 +29,7 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 @property (nonatomic, strong) NSNumber *selectedScore;
 @property (nonatomic, strong) NSString *selectedSentiment;
 @property (nonatomic, strong) NSString *selectedAuthor;
-
+@property (nonatomic, strong) AGSGraphic *selectedFeature;
 @property (nonatomic, strong) NSArray *features;
 
 @property (nonatomic, strong) NSMutableArray *simpleSymbols;
@@ -36,6 +37,8 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 @property (nonatomic, strong) NSMutableArray *textSymbols;
 @property (nonatomic, strong) NSMutableArray *compositeSymbols;
 @property (nonatomic, strong) NSMutableArray *graphics;
+
+@property (nonatomic, strong) JFMinimalNotification *minimalNotification;
 
 @property (assign) NSInteger minScore;
 @property (assign) NSInteger maxScore;
@@ -45,6 +48,8 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [AGSRuntimeEnvironment setClientID:@"m1UgtDWoSCT8HnH6" error:nil];
+    
     UIImage *icon = [UIImage imageNamed:@"launchIcon"];
     UIColor *color = [UIColor colorWithRed:135/255.f green:190/255.f blue:240/255.f alpha:1.0];
     CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
@@ -53,6 +58,14 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
     
     [self.view addSubview:splashView];
     [splashView startAnimation];
+    
+    
+    self.minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleCustom title:@"This is my awesome title" subTitle:nil];
+    
+    self.minimalNotification.presentFromTop = YES;
+    [self.view addSubview:self.minimalNotification];
+
+
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"];
@@ -70,6 +83,10 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
     self.mapView.callout.delegate = self;
     [self queryTest];
     self.constraintHeightOfBottomView.constant = 0;
+    
+    [self.mapView.callout setColor:[UIColor clearColor]];
+    [self.mapView.callout setBorderWidth:0.0f];
+    self.mapView.callout.accessoryButtonHidden = YES;
 
 }
 
@@ -223,6 +240,11 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
         [compositeSymbol addSymbol:symbol];
         
         AGSSimpleMarkerSymbol *fixed = [self.fixedSymbols objectAtIndex:idx];
+        if ([[feature attributeAsStringForKey:@"OBJECTID"] isEqualToString:[self.selectedFeature attributeAsStringForKey:@"OBJECTID"]]){
+            fixed.color = [UIColor blackColor];
+        } else {
+            fixed.color = [ColorHelper colorWithSentiment:[feature attributeAsStringForKey:@"sentiment"]];
+        }
         [compositeSymbol addSymbol:fixed];
         
         AGSTextSymbol *textSymbol = [self.textSymbols objectAtIndex:idx];
@@ -255,7 +277,7 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
     NSLog(@"loaded");
     
     [mapView.locationDisplay startDataSource];
-    
+    [mapView zoomToScale:2.0 animated:NO];
 }
 
 #pragma mark - Callout delegate
@@ -272,6 +294,7 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
             self.selectedAuthor = [selectedFeature attributeAsStringForKey:@"author"];
             self.selectedMessage = [selectedFeature attributeAsStringForKey:@"message"];
             self.selectedSentiment = [selectedFeature attributeAsStringForKey:@"sentiment"];
+            self.selectedFeature = selectedFeature;
             
             NSLog(@"%@", feature);
             NSLog(@"%@", self.selectedMessage);
@@ -281,13 +304,30 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
         }
     }
     
-    NSLog(@"show callout");
+    NSString *sentiment = [self.selectedFeature attributeAsStringForKey:@"sentiment"];
+    self.minimalNotification.backgroundColor = [ColorHelper colorWithSentiment:sentiment];
+    NSString *title;
+    if ([sentiment isEqualToString:@"Excited"]) {
+        title = @"I'm so excited XD";
+    } else if ([sentiment isEqualToString:@"joy"]){
+        title = @"It is joyful :)";
+    } else if ([sentiment isEqualToString:@"disappointed"]){
+        title = @"I'm disappointed :(";
+    } else if ([sentiment isEqualToString:@"anger"]){
+        title = @"I'm angry";
+    } else {
+        title = @"I'm so sad";
+    }
+        
+    
+    self.minimalNotification.titleLabel.text = title;
+    self.minimalNotification.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.minimalNotification.titleLabel.textColor = [UIColor whiteColor];
     
     self.labelScore.text = [NSString stringWithFormat:@"Score: %@", self.selectedScore];
     self.labelAuthor.text = self.selectedAuthor;
     [self.bottomViewBar setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@Bar", self.selectedSentiment]]];
     
-    [self.mapView centerAtPoint:[feature geometry].envelope.center animated:YES];
     
 
 
@@ -306,11 +346,30 @@ static NSString * const kWebmapId = @"5fed751f6fcd46d59a087c30e59a7d1a";
                      }];
     
     
-    
-    [self.tableView reloadData];
+    [self.mapView centerAtPoint:[feature geometry].envelope.center animated:YES];
 
-    return NO;
+    [self.tableView reloadData];
+    [self.minimalNotification show];
+
+    return YES;
 }
+
+- (void)calloutWillDismiss:(AGSCallout *)callout{
+    [self.minimalNotification dismiss];
+    self.selectedFeature = nil;
+    [self.view layoutIfNeeded];
+    self.constraintHeightOfBottomView.constant = 0;
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+}
+
 
 #pragma mark - UITableView delegate
 
